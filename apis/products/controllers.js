@@ -10,8 +10,16 @@ exports.fetchProduct = async (productId, next) => {
 };
 
 exports.productListFetch = async (req, res, next) => {
+  console.log(
+    "🚀 ~ file: controllers.js ~ line 13 ~ exports.productListFetch= ~ req",
+    req.body
+  );
   try {
     const products = await Product.find().populate("shop");
+    console.log(
+      "🚀 ~ file: controllers.js ~ line 15 ~ exports.productListFetch= ~ products",
+      products
+    );
     return res.json(products);
   } catch (error) {
     next(error);

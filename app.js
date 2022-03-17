@@ -7,6 +7,7 @@ const passport = require("passport");
 // Routes
 const productRoutes = require("./apis/products/routes");
 const shopRoutes = require("./apis/shops/shops.routes");
+const orderRoutes = require("./apis/orders/routes");
 const userRoutes = require("./apis/users/users.routes");
 
 // DB
@@ -45,6 +46,7 @@ passport.use(jwtStrategy);
 // http://localhost:8000/media/image_name
 // Routes
 app.use("/api/products", productRoutes);
+app.use("/api", orderRoutes);
 app.use("/api/shops", shopRoutes);
 app.use("/api", userRoutes);
 app.use("/media", express.static(path.join(__dirname, "media")));
